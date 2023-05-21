@@ -33,6 +33,6 @@ public class Forest extends RealProperty {
                 ", price-" + getPrice() +
                 ", owner-" + getOwner() +
                 ", area-" + getArea() + (isProtectedZone? ". PROTECTED ZONE": ". USUAL ZONE") +
-                '}';
+                '}' + "TAX per year:" + calculatePropertyTax();
     }
 }

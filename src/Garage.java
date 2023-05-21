@@ -34,6 +34,6 @@ public class Garage extends RealProperty{
                 ", price-" + getPrice() +
                 ", owner-" + getOwner() +
                 ", area-" + getArea() + ", parking spaces- " + numberOfParkingSpaces +
-                '}';
+                '}'+ "TAX per year:" + calculatePropertyTax();
     }
 }

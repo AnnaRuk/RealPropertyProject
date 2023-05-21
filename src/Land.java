@@ -34,7 +34,7 @@ public class Land extends RealProperty{
                 ", price-" + getPrice() +
                 ", owner-" + getOwner() +
                 ", area-" + getArea() + ", purpose-" + purpose +
-                '}';
+                '}' + "TAX per year:" + calculatePropertyTax();
     }
 
 

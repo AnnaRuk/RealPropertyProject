@@ -45,7 +45,7 @@ public class Apartment extends RealProperty {
                 ", price-" + getPrice() +
                 ", owner-" + getOwner() +
                 ", area-" + getArea() + "rooms:" + roomNumber +
-                '}';
+                '}'+ "TAX per year:" + calculatePropertyTax();
     }
 
 

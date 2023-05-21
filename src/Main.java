@@ -1,7 +1,5 @@
 import java.util.*;
 
-import static java.nio.file.Files.getOwner;
-
 public class Main {
     public static void main(String[] args) {
 /*        1
@@ -165,6 +163,8 @@ public class Main {
         System.out.println("---------- сортируeм по общей стоимости  ---------");
         print(getSortRealPropertyByPrice(realProperties));
 
+        System.out.println("---------- сортируeм по сумме налога  ---------");
+        print(getSortRealPropertyByTax(realProperties));
 
         System.out.println("---------- сортируeм по площади  ---------");
         print(getSortRealPropertyByArea(realProperties));
@@ -197,12 +197,17 @@ public class Main {
         return realProperties;
     }
 
+    public static ArrayList<RealProperty> getSortRealPropertyByTax(ArrayList<RealProperty> realProperties) {
+        realProperties.sort(new ComparatorRealPropertyByTax());
+        return realProperties;
+    }
 
-    public static Map<RealProperty, Double> createMapRealPropertyTax(ArrayList<RealProperty> realProperties) {
-        Map<RealProperty, Double> realPropertyTax = new HashMap<>();
+
+    public static Map<String, Double> createMapRealPropertyTax(ArrayList<RealProperty> realProperties) {
+        Map<String, Double> realPropertyTax = new HashMap<>();
         for (RealProperty realProperty : realProperties
         ) {
-            realPropertyTax.put(realProperty, realProperty.calculatePropertyTax());
+            realPropertyTax.put(realProperty.getCadastralNumber(), realProperty.calculatePropertyTax());
         }
         return realPropertyTax;
     }
@@ -216,7 +221,7 @@ public class Main {
         }
     }
 
-    public static void printMap(Map<RealProperty, Double> map) {
+    public static void printMap(Map<String, Double> map) {
         for (Map.Entry entry : map.entrySet()
         ) {
             System.out.println(entry.getKey() + " Tax per year: " + entry.getValue());

@@ -41,6 +41,6 @@ public class House extends RealProperty{
                 ", price-" + getPrice() +
                 ", owner-" + getOwner() +
                 ", area-" + getArea() + "floors-" + floorNumber + ", tenants:" + people.size() +
-                '}';
+                '}' + "TAX per year:" + calculatePropertyTax();
     }
 }
